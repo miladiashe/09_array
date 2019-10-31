@@ -1,25 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE 5
+#define ROWS 3
+#define COLS 3
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(int argc, char *argv[]) {
-	
+void addMatrix(int A[][COLS], int B[][COLS], int C[][COLS]){
 	int i;
-	int a[SIZE] = {1, 2, 3, 4, 5};
-	int b[SIZE] = {1, 2, 3, 4, 5};
-	int flag_same = 1;
-	
-	
-	for (i=0;i<SIZE;i++)
+	int j;
+	for(i=0; i<ROWS; i++)
 	{
-		if (a[i]==b[i]) //올바르지 않은 배열 비교
-		printf("배열은 같은 값을 가집니다.\n");
-		else printf("배열은 다른 값을 가집니다.\n");
+		for(j=0; j<COLS; j++)
+		C[i][j] =	A[i][j] + B[i][j] ;
+	};
+}
 
+void printMatrix(int C[][COLS]){
+	int i;
+	int j;
+	for(i=0; i<ROWS; i++)
+	{
+			for(j=0; j<COLS; j++)
+			printf("%d ", C[i][j]);
+	printf("\n");
 	}
 		
+}
+
+int main(int argc, char *argv[]) {
+
+	int a[ROWS][COLS] = {
+		{2, 3, 0},
+		{8, 9, 1},
+		{7, 0, 5}};
+	int b[ROWS][COLS] = {
+		{1, 0, 0},
+		{0, 1, 0},
+		{0, 0, 1}};
+	int c[ROWS][COLS];
+	
+	addMatrix(a, b, c);
+	printMatrix(c);
+
 		
 	return 0;
 }
