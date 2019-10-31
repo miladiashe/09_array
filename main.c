@@ -7,15 +7,19 @@
 int main(int argc, char *argv[]) {
 	
 	int i;
-	int grade[SIZE];
-	int score[SIZE];
+	int a[SIZE] = {1, 2, 3, 4, 5};
+	int b[SIZE] = {1, 2, 3, 4, 5};
+	int flag_same = 1;
 	
 	
 	for (i=0;i<SIZE;i++)
-		grade[i] = rand()% 100;
-		score[i] = grade[i];
+	{
+		if (a[i]==b[i]) //올바르지 않은 배열 비교
+		printf("배열은 같은 값을 가집니다.\n");
+		else printf("배열은 다른 값을 가집니다.\n");
+
+	}
 		
-	for (i=0;i<SIZE;i++)
-		printf("score[%d] = %d\n", i, score[i]);
+		
 	return 0;
 }
